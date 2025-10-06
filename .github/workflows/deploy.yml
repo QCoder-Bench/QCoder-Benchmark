@@ -16,7 +16,7 @@ jobs:
       - name: Deploy to qcoder-bench.github.io
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          repository-name: QCoder-Bench/qcoder-bench.github.io  
+          repository-name: QCoder-Bench/QCoder-Bench.github.io  
           branch: main                                         
           folder: website                                      
           ssh-key: ${{ secrets.DEPLOY_KEY }}                   
