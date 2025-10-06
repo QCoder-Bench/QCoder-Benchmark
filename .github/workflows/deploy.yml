@@ -1,0 +1,28 @@
+name: Build and Deploy to User Site
+
+on:
+  push:
+    branches: [ main ]  
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run build  
+
+      - run: touch dist/.nojekyll
+
+      - name: Deploy to qcoder-bench.github.io
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: QCoder-Bench/qcoder-bench.github.io
+          branch: main
+          folder: dist
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          clean: true
