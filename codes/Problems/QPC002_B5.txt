@@ -1,0 +1,33 @@
+## Problem Statement
+You are given integers $n,\ m,\ S_0,\ S_1,\ \cdots,\ S_{n-1}$.
+
+For an integer $x = x_0 + 2^1 x_1 + \cdots 2^{n-1}x_{n-1}$ $\left(x_i \in \{0, 1\}\right)$ where $0 \leq x < 2^n$, define the function $f(x)$ by
+$$
+\begin{equation}
+f(x) = S_0 x_0 + S_1 x_1 + \cdots + S_{n-1}x_{n-1} \nonumber
+\end{equation}.
+$$
+
+Implement the $n$-qubit oracle $O$ acting on computational basis states as
+$$
+\begin{equation}
+\ket{x}_n \xrightarrow{O} \exp{\left(\frac{2\pi i f(x)}{2^m}\right)}\ket{x}_n \nonumber
+\end{equation}
+$$
+for any integer $x$ such that $0 \leq x < 2^n$.
+
+## Constraints
+- $1 \leq n, m \leq 10$
+- $0 \leq S_k < 2^m$
+- **The circuit depth must not exceed $10$.**
+- Integers must be encoded by little-endian, meaning the least significant bit is on the left.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+((FORMAT TO BE ADDED DURING RENDERING))
+
+## Sample Input
+- $n=2,\ m = 2,\ S_0 = 1,\ S_1 = 3,\ \ket{x} = \ket{11} = \ket{3}$:
+Since $f(3) = 1 \cdot 1 + 3 \cdot 1 = 4$, Implemented circuit $\mathrm{qc}$ should perform the following transformation.
+$$
+\ket{11} \xrightarrow{\mathrm{qc}} \exp{\left(\frac{2 \cdot 4\pi i}{2^2}\right)}\ket{11}
+$$

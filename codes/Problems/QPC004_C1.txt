@@ -1,0 +1,16 @@
+## Problem Statement
+You are given an integer $n$ and two positive integers $a$ and $L$ that are coprime.
+
+For arbitrary integer $k$ satisfying $0 \leq k < n$, calculate $a^{2^k}\ \text{mod}\ L$.
+
+## Constraints
+- $1 \leq n \leq 10^5$
+- $1 \leq a < L \leq 2^{1024}$
+- **Results must be returned as a Python's list in the form of [$a^{2^0}\ \text{mod}\ L$, $\cdots$, $a^{2^{n-1}}\ \text{mod}\ L$].**
+- The submitted code must follow the specified format:
+
+    def solve(n: int, a: int, L: int) -> list[int]:
+        result: list[int] = []
+        # Write your code here:
+
+        return result

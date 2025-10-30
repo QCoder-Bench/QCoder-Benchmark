@@ -1,0 +1,23 @@
+## Problem Statement
+Implement a quantum circuit $\mathrm{qc}$ with $2$ qubits that simultaneously realizes the following state transitions.
+
+$$
+\begin{align}
+\ket {00} \xrightarrow{\mathrm{qc}} \frac{1}{\sqrt 3}(\ket{00} + \ket {01} - \ket {11}) \nonumber \\
+\ket {10} \xrightarrow{\mathrm{qc}} \frac{1}{\sqrt 3}(\ket{00} + \ket {10} + \ket {11}) \nonumber
+\end{align}
+$$
+
+
+## Constraints
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve() -> QuantumCircuit:
+        qc = QuantumCircuit(2)
+        # Write your code here:
+
+        return qc

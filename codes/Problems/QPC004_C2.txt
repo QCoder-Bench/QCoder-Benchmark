@@ -1,0 +1,15 @@
+## Problem Statement
+You are given two positive integers $a$ and $L$ that are coprime.
+
+Calculate $a^{-1}\ \text{mod}\ L$, where $a^{-1}$ is a inverse of $a$ and is defined as an integer that satisfies $a \cdot a^{-1} \equiv 1\ (\text{mod}\ L)$.
+
+## Constraints
+- $1 \leq a < L \leq 2^{1024}$
+- **The result must be returned as a integer variable**
+- The submitted code must follow the specified format:
+
+    def solve(a: int, L: int) -> int:
+        result: int = 0
+        # Write your code here:
+
+        return result

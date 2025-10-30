@@ -1,0 +1,22 @@
+## Problem Statement
+Implement the operation of preparing the state $\ket{\psi}$ from the zero state on a quantum circuit $\mathrm{qc}$ with $1$ qubit.
+
+The state $\ket{\psi}$ is defined as
+
+$$
+\begin{equation}
+\ket{\psi} = i\ket{1} \nonumber
+\end{equation}.
+$$
+
+## Constraints
+- **In this problem, the state with different global phase will not be considered correct.**
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+    def solve() -> QuantumCircuit:
+        qc = QuantumCircuit(1)
+        # Write your code here:
+
+        return qc

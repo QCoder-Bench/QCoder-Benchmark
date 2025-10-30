@@ -1,0 +1,41 @@
+## Problem Statement
+You are given an integer $n$.
+Implement the operation defined by the following matrix $A$ on a quantum circuit $\mathrm{qc}$ with $n$ qubits:
+
+$$
+A = 2 \ket{\psi} \bra{\psi} - I
+$$
+
+where $I$ denotes the $2^n \times 2^n$ identity matrix and $\ket{\psi}$ is defined by
+
+$$
+\ket{\psi} = \frac{1} {\sqrt{2^n}} \sum_{i=0}^{2^n-1} \ket{i}.
+$$
+
+## Constraints
+- $2 \leq n \leq 10$
+- Integers must be encoded by little-endian>.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc
+
+## Sample Input
+- $n=2,\ \ket{\psi} = \frac{1}{\sqrt{4}} ( \ket{00} + \ket{10} + \ket{01} + \ket{11})$:
+The matrix $A$ is calculated as follows.
+$$
+A = 2 \ket{\psi} \bra{\psi} - I =
+\begin{pmatrix}
+-0.5 & 0.5 & 0.5 & 0.5\\
+0.5 & -0.5 & 0.5 & 0.5\\
+0.5 & 0.5 & -0.5 & 0.5\\
+0.5 & 0.5 & 0.5 & -0.5
+\end{pmatrix}
+$$

@@ -1,0 +1,40 @@
+## Problem Statement
+You are given an integer $n$.
+
+Implement the following operation on a quantum circuit $\mathrm{qc}$ with $n$ qubits for an arbitrary bit string.
+
+$$
+\begin{equation}
+\ket{x_0 x_1 \cdots x_{n-1}}_n \xrightarrow{\mathrm{qc}} \ket{x_{n-1} x_0 x_1 \cdots x_{n-2}}_n \nonumber
+\end{equation}
+$$
+
+## Constraints
+- $2 \leq n \leq 10$
+- **The circuit depth must not exceed $30$.**
+- Global phase is ignored in judge.
+- **You cannnot use Qiskit's SwapGate in this problem.**
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc
+
+## Sample Input
+- $n = 2$:
+Implemented circuit $\mathrm{qc}$ should perform the following transformation.
+  $$
+  \begin{equation}
+  \begin{cases}
+  \ket {00} \xrightarrow{\mathrm{qc}} \ket{00} \\
+  \ket {10} \xrightarrow{\mathrm{qc}} \ket{01} \\
+  \ket {01} \xrightarrow{\mathrm{qc}} \ket{10} \\
+  \ket {11} \xrightarrow{\mathrm{qc}} \ket{11}
+  \end{cases} \nonumber
+  \end{equation}
+  $$

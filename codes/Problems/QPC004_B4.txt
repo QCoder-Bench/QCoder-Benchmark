@@ -1,0 +1,32 @@
+## Problem Statement
+You are given integers $n$, $s$ and $t$.
+
+Implement an oracle $O$ satisfying the following transition on a quantum circuit $\mathrm{qc}$ with $n+1$ qubits.
+
+1. For arbitrary integer $k$ satisfying $s \leq k < 2^n$, the oracle $O$ satisfies
+
+$$
+\ket{k}_{n+1} \xrightarrow{O} \ket{k - s}_{n+1}
+$$
+
+2. For arbitrary integer $k$ satisfying $2^n \leq k < t$, the oracle $O$ satisfies
+
+$$
+\ket{k}_{n+1} \xrightarrow{O} \ket{k + 2^{n+1} - t}_{n+1}
+$$
+
+## Constraints
+- $1 \leq n \leq 10$
+- $0 \leq s < 2^n < t < 2^{n+1}$
+- Global phase is ignored in judge.
+- Integers must be encoded by little-endian.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int, s: int, t: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n + 1)
+        # Write your code here:
+
+        return qc

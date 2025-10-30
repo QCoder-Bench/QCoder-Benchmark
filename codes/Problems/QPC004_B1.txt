@@ -1,0 +1,33 @@
+## Problem Statement
+You are given an integer $n$.
+
+Implement the operation of preparing the uniform superposition state $\ket{A}$ from the zero state on a quantum circuit $\mathrm{qc}$ with $n$ qubits.
+
+The uniform superposition state $\ket{A}$ is defined as
+$$
+\begin{align}
+\ket{A}_n &= \frac{1}{\sqrt{2^n}} \sum_{i=0}^{2^n-1} \ket{i} \nonumber\\
+& = \frac{1}{\sqrt{2^n}} (\ket{0...0}_n + ... + \ket{1...1}_n). \nonumber
+\end{align}
+$$
+
+## Constraints
+- $1 \leq n \leq 10$
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc
+
+## Sample Input
+- $n = 2$:
+Implemented circuit $\mathrm{qc}$ should perform the following transformation.
+$$
+\ket{00} \xrightarrow{\mathrm{qc}} \frac{1}{\sqrt{4}} (\ket{00} + \ket{10} + \ket{01} + \ket{11})
+$$

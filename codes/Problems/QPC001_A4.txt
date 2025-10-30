@@ -1,0 +1,24 @@
+## Problem Statement
+Implement the operation of preparing the state $\ket{\psi}$ from the zero state on a quantum circuit $\mathrm{qc}$ with $2$ qubits.
+
+The state $\ket{\psi}$ is defined as
+
+\begin{equation}
+\ket{\psi} = a_0\ket{00} + a_1\ket{10} + a_2\ket{01}, \nonumber
+\end{equation}
+
+where $a_0$, $a_1$, and $a_2$ denote arbitrary non-zero probability amplitudes (any values are permitted).
+
+## Constraints
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+'''python
+    from qiskit import QuantumCircuit
+
+    def solve() -> QuantumCircuit:
+        qc = QuantumCircuit(2)
+        # Write your code here:
+
+        return qc
+'''

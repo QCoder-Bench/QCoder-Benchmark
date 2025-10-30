@@ -1,0 +1,41 @@
+## Problem Statement
+You are given integers $n$ and $L$.
+Implement the operation of preparing the state $\ket{\psi}$ on a quantum circuit $\mathrm{qc}$ with $n$ qubits such that the states $\ket{0},\ \ket{1},\ ...\ \ket{L-1}$ are observed with equal probabilities, and the sum of these probabilities equals $1$.
+
+**The error in the sum of probabilities can be up to $5.0 \times 10^{-3}$.**
+
+### More Precise Problem Statement
+Define the state $\ket{\psi}$ prepared by $\mathrm{qc}$ as
+
+\begin{equation}
+\ket{\psi} = \sum_{i=0}^{2^n-1} a_i\ket{i}, \nonumber
+\end{equation}
+
+where $a_i$ denotes the probability amplitude of the computational basis state $\ket{i}$.
+
+Implement $\mathrm{qc}$ satisfying following conditions:
+- $|a_0| = |a_1| = \cdots = |a_{L-1}|$
+- $\sum_{i=0}^{L-1} |a_i|^2 > 1 - 5.0 \times 10^{-3}$
+
+## Constraints
+- $1 \leq n \leq 10$
+- $1 \leq L \leq 2^n$
+- **The circuit depth must not exceed $1000$.**
+- Integers must be encoded by little-endian.
+- The submitted code must follow the specified format:
+
+'''python
+    from qiskit import QuantumCircuit
+
+    def solve(n: int, L: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc
+'''
+
+## Sample Input
+- $n = 3,\ L=3$:
+Implemented circuit $\mathrm{qc}$ should perform the following transformation.
+
+\ket{000} \xrightarrow{\mathrm{qc}} \frac{1}{\sqrt{3}} (\ket{000} + \ket{100} + \ket{010})

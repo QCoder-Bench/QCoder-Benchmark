@@ -1,0 +1,28 @@
+## Problem Statement
+You are given an integer $n$.
+
+For any integer $x$ satisfying $0 \leq x < 2^n$, implement the following operation on a quantum circuit $\mathrm{qc}$ with $n$ qubits.
+
+$$
+\begin{equation}
+\ket{x} \xrightarrow{\mathrm{qc}} \ket{(x-1) \bmod {2^n}} \nonumber
+\end{equation}
+$$
+
+Note that we define $-1 \bmod {2^n} = 2^n - 1$.
+
+## Constraints
+- $2 \leq n \leq 10$
+- **The circuit depth must not exceed $10$.**
+- Global phase is ignored in judge.
+- Integers must be encoded by little-endian.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc

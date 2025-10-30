@@ -1,0 +1,28 @@
+## Problem Statement
+Given an integer $n$, implement an $n$-qubit oracle $O$ on a quantum circuit $\mathrm{qc}$.
+
+The oracle $O$ acts on basis states $\ket{k}_n$, where $0 \leq k < 2^n$, as follows:
+
+$$
+\ket{k}_n \xrightarrow{O} \ket{- k \ \text{mod} \ 2^n}_n.
+$$
+
+Here, $- k \ \text{mod} \ 2^n$ denotes the unique integer $x$ such that $0 \leq x < 2^n$ and $k + x$ is divisible by $2^n$.
+
+## Constraints
+- $1 \leq n \leq 10$
+- **The circuit depth must not exceed $30$.**
+- Integers must be encoded by little-endian.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    '''python
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc
+    '''

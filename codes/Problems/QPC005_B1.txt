@@ -1,0 +1,55 @@
+## Problem Statement
+Let $n$ be a positive integer. For an integer $k$ with $0 \leq k < 2^n$, define $\mathrm{QFT}(k)$ as the following state:
+
+$$
+\mathrm{QFT}(k) = \frac{1}{\sqrt{2^n}} \sum_{0 \leq a < 2^n} \omega^{ak} \ket{a},
+$$
+
+where
+
+$$
+\omega = \exp \left( {\frac{2 \pi i}{2^n}} \right).
+$$
+
+Given integers $n$ and $k_{\text{const}}$, implement an $n$-qubit oracle $O$ on a quantum circuit $\mathrm{qc}$.
+
+The oracle $O$ must satisfy
+
+$$
+\mathrm{QFT}(k) \xrightarrow{O} \mathrm{QFT}(k'),
+$$
+
+where $k'$ is an integer satisfying
+
+$$
+\omega^{k'} = \omega^{k_{\text{const}}} \omega^{k}.
+$$
+
+## Constraints
+- $2 \leq n \leq 10$
+- $0 \leq k_{\text{const}} < 2^n$
+- **The circuit depth must not exceed $1$.**
+- Integers must be encoded by little-endian.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    '''python
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int, k_const: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc
+    '''
+
+
+## Sample Input
+- $n = 2$:
+Implemented circuit $\mathrm{qc}$ should perform the following transformation.
+$$
+\frac{1}{\sqrt{4}} \left( \ket{0} + \omega^{k} \ket{1} + \omega^{2k} \ket{2} + \omega^{3k} \ket{3} \right)
+\xrightarrow{\mathrm{qc}}
+\frac{1}{\sqrt{4}} \left( \ket{0} + \omega^{k'} \ket{1} + \omega^{2k'} \ket{2} + \omega^{3k'} \ket{3} \right)
+$$

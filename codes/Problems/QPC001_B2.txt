@@ -1,0 +1,30 @@
+## Problem Statement
+You are given an integer $n$.
+Implement the oracle $O$ on a quantum circuit $\mathrm{qc}$ consisting of $n+1$ qubits, and acting on the computational basis states as
+
+\ket{\psi} = \ket{\mathbf{x}}\ket{y} \xrightarrow{O} \ket{\mathbf{x}}\ket{y \oplus x_1 \oplus x_2 \oplus ... \oplus x_n}.
+
+$\ket{\mathbf{x}}=\ket{x_1,...,x_n}$ denotes the first $n$ qubits of the circuit and $\ket{y}$ denotes the last one.
+
+## Constraints
+- $1 \leq n \leq 10$
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+'''python
+    from qiskit import QuantumCircuit, QuantumRegister
+
+    def solve(n: int) -> QuantumCircuit:
+        x, y = QuantumRegister(n), QuantumRegister(1)
+        qc = QuantumCircuit(x, y)
+        # Write your code here:
+
+        return qc
+'''
+
+## Sample Input
+- $\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{101} + \ket{010})$:
+The implemented oracle $O$ should perform the following transformation.
+
+\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{101} + \ket{010}) \xrightarrow{O} \frac{1}{\sqrt{2}} (\ket{100} + \ket{011})
+

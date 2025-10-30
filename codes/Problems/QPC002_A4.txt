@@ -1,0 +1,33 @@
+## Problem Statement
+You are given an integer $n$.
+Implement the operation of preparing the state $\ket{\psi}$ from the zero state on a quantum circuit $\mathrm{qc}$ with $n$ qubits.
+
+The quantum state $\ket{\psi}$ is defined as
+$$
+\begin{equation}
+\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{0...0}_n - \ket{1...1}_n) \nonumber
+\end{equation}.
+$$
+
+## Constraints
+- $2 \leq n \leq 15$
+- **The >circuit depth must not exceed $10$.**
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+'''python
+    from qiskit import QuantumCircuit
+
+    def solve(n: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc
+'''
+
+## Sample Input
+- $n = 4$:
+Implemented circuit $\mathrm{qc}$ should perform the following transformation.
+$$
+\ket{0000} \xrightarrow{\mathrm{qc}} \frac{1}{\sqrt{2}} (\ket{0000} - \ket{1111})
+$$

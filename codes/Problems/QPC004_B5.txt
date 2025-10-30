@@ -1,0 +1,25 @@
+## Problem Statement
+You are given integers $n$, $a$ and $L$.
+
+Implement an oracle $O$ satisfying the following transition on a quantum circuit $\mathrm{qc}$ with $n+1$ qubits.
+
+For arbitrary integer $k$ **satisfying $0 \leq k < L$**, the oracle $O$ satisfies
+$$
+\ket{k}_{n+1} \xrightarrow{O} \ket{(k + a)\ \text{mod} \ L}_{n+1}.
+$$
+
+## Constraints
+- $1 \leq n \leq 10$
+- $0 \leq a < L \leq 2^n$
+- Global phase is ignored in judge.
+- Integers must be encoded by little-endian.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int, a: int, L: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n + 1)
+        # Write your code here:
+
+        return qc

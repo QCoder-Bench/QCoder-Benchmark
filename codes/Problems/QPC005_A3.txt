@@ -1,0 +1,37 @@
+## Problem Statement
+Given an integer $n$, implement an $(n + 1)$-qubit oracle $O$ on a quantum circuit $\mathrm{qc}$.
+
+The oracle $O$ acts on basis states $\ket{m}\ket{k}_n$, where $0 \leq m < 2$ and $0 \leq k < 2^n$, as follows:
+
+- If $k = 0$,
+
+$$
+\ket{m} \ket{k}_n \xrightarrow{O} \ket{m} \ket{k}_n.
+$$
+
+- Otherwise,
+
+$$
+\ket{m} \ket{k}_n \xrightarrow{O} \ket{m \oplus 1} \ket{k}_n.
+$$
+
+Here, $\oplus$ denotes the XOR operator.
+
+## Constraints
+- $1 \leq n \leq 10$
+- **The circuit depth must not exceed $4$.**
+- Integers must be encoded by little-endian.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    '''python
+    from qiskit import QuantumCircuit, QuantumRegister
+
+
+    def solve(n: int) -> QuantumCircuit:
+        m, k = QuantumRegister(1), QuantumRegister(n)
+        qc = QuantumCircuit(m, k)
+        # Write your code here:
+
+        return qc
+    '''

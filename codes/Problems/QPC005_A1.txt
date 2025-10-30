@@ -1,0 +1,31 @@
+## Problem Statement
+Implement a $1$-qubit quantum circuit $\mathrm{qc}$ which satisfies the following condition:
+
+- Given the zero state $\ket{0}$ as the input, return the minus state $\ket{-}$ as the output.
+
+$$
+\ket{0} \xrightarrow{\mathrm{qc}} \ket{-}
+$$
+
+Here, the minus state $\ket{-}$ is defined as
+
+$$
+\begin{equation}
+\ket{-} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}). \nonumber
+\end{equation}
+$$
+
+## Constraints
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    '''python
+    from qiskit import QuantumCircuit
+
+
+    def solve() -> QuantumCircuit:
+        qc = QuantumCircuit(1)
+        # Write your code here:
+
+        return qc
+    '''

@@ -1,0 +1,35 @@
+## Problem Statement
+You are given integers $n,\ m,\ S_0,\ S_1,\ \cdots,\ S_{n-1}$.
+
+For an integer $x = x_0 + 2^1 x_1 + \cdots 2^{n-1}x_{n-1}$ $\left(x_i \in \{0, 1\}\right)$ where $0 \leq x < 2^n$, define the function $f(x)$ by
+$$
+\begin{equation}
+f(x) = S_0 x_0 + S_1 x_1 + \cdots + S_{n-1}x_{n-1} \nonumber
+\end{equation}.
+$$
+
+Implement the $(n + m)$-qubit oracle $O$ acting on computational basis states as
+$$
+\begin{equation}
+\ket{x}_{n}\ket{y}_{m} \xrightarrow{O} \ket{x}_{n}\ket{(y + f(x)) (\mathrm{mod}\ 2^m)}_{m} \nonumber
+\end{equation}
+$$
+for any pair of integers $(x,\ y)$ such that $0 \leq x < 2^n$ and $0 \leq y < 2^m$.
+
+## Constraints
+- $1 \leq n, m \leq 9$
+- $n + m \leq 10$
+- $0 \leq S_k < 2^m$
+- **The circuit depthmust not exceed $50$.**
+- Integers must be encoded by little-endian, meaning the least significant bit is on the left.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit, QuantumRegister
+
+    def solve(n: int, m: int, S: list[int]) -> QuantumCircuit:
+        x, y = QuantumRegister(n), QuantumRegister(m)
+        qc = QuantumCircuit(x, y)
+        # Write your code here:
+
+        return qc

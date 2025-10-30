@@ -1,0 +1,27 @@
+## Problem Statement
+You are given an integer $n$ and two positive integers $a$ and $L$ that are coprime.
+
+Implement an oracle $O$ satisfying the following transition on a quantum circuit $\mathrm{qc}$ with $2n + 1$ qubits.
+
+For arbitrary integer $x$ satisfying $0 \leq x < L$, the oracle $O$ satisfies
+
+$$
+\ket{x}_{2n + 1} \xrightarrow{O} \ket{ax \ \text{mod} \ L}_{2n + 1}
+$$
+
+## Constraints
+- $1 \leq n \leq 5$
+- $1 \leq a < L \leq 2^n$
+- Global phase is ignored in judge.
+- Integers must be encoded by little-endian.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit, QuantumRegister
+
+
+    def solve(n: int, a: int, L: int) -> QuantumCircuit:
+        x, y = QuantumRegister(n), QuantumRegister(n + 1)
+        qc = QuantumCircuit(x, y)
+        # Write your code here:
+
+        return qc

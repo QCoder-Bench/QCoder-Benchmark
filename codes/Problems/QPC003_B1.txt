@@ -1,0 +1,20 @@
+## Problem Statement
+Implement the operation defined by the following matrix $A$ on a quantum circuit $\mathrm{qc}$ with $1$ qubit.
+
+$$
+A = \ket{1}\bra{0}+\ket{0}\bra{1}
+$$
+
+## Constraints
+- **In this problem, the state with different <Link href={pagePathEn.qa + "#global"}>global phase</Link> will not be considered correct.**
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve() -> QuantumCircuit:
+        qc = QuantumCircuit(1)
+        # Write your code here:
+
+        return qc
+

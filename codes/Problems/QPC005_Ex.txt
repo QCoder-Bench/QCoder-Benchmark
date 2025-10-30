@@ -1,0 +1,57 @@
+## Problem Statement
+Let $n$ be a positive integer. Consider a list $[p_0, p_1, ... , p_{2^n-1}]$ of length $2^n$.
+
+We define Operation 1 and Operation 2 as follows:
+
+- **Operation 1**: Move the first element to the end
+
+$$
+[p_0, p_1, ... , p_{2^n-1}] \rightarrow [p_1, ... , p_{2^n-1}, p_0]
+$$
+
+- **Operation 2**: Reverse the entire list
+
+$$
+[p_0, p_1, ... , p_{2^n-1}] \rightarrow [p_{2^n - 1}, ... , p_1, p_0]
+$$
+
+Also, for integers $m$, $k$ with $0 \leq m < 2$, $0 \leq k < 2^n$, let $g(m, k)$ be the concatenation of the following actions:
+
+- First, apply Operation 1 for $k$ times.
+- Then, apply Operation 2 for $m$ times.
+
+Given integers $n$, $m_{\text{before}}$, $k_{\text{before}}$, $m_{\text{after}}$ and $k_{\text{after}}$, implement an $(n + 1)$-qubit oracle $O$ on a quantum circuit $\mathrm{qc}$.
+
+The oracle $O$ must satisfy
+
+$$
+\ket{m}\ket{k}_n \xrightarrow{O} \ket{m'}\ket{k'}_n,
+$$
+
+where $g(m', k')$ must be equivalent to the concatenation of the following actions:
+
+- First, apply $g(m_{\text{before}}, k_{\text{before}})$.
+- Then, apply $g(m, k)$.
+- Finally, apply $g(m_{\text{after}}, k_{\text{after}})$.
+
+## Constraints
+- $2 \leq n \leq 10$
+- $0 \leq m_{\text{before}} < 2$
+- $0 \leq k_{\text{before}} < 2^n$
+- $0 \leq m_{\text{after}} < 2$
+- $0 \leq k_{\text{after}} < 2^n$
+- **The circuit depth must not exceed $300$.**
+- Integers must be encoded by little-endian.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    '''python
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int, m_before: int, k_before: int, m_after: int, k_after: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n + 1)
+        # Write your code here:
+
+        return qc
+    '''

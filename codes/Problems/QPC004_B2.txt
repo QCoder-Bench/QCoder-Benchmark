@@ -1,0 +1,27 @@
+## Problem Statement
+You are given integers $n$ and $a$.
+
+Implement an oracle $O$ satisfying the following transition on a quantum circuit $\mathrm{qc}$ with $n+1$ qubits.
+
+For any pair of integers $(k, c)$ satisfying $0 \leq k < 2^n$ and $0 \leq c \leq 1$, the oracle satisfies
+
+$$
+\ket{k}_n \ket{c}_1 \xrightarrow{O} \exp\left(\frac{2\pi i c a k}{2^n}\right) \ket{k}_n \ket{c}_1.
+$$
+
+## Constraints
+- $1 \leq n \leq 10$
+- $1 \leq a \leq 10$
+- Integers must be encoded by little-endian.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit, QuantumRegister
+
+
+    def solve(n: int, a: int) -> QuantumCircuit:
+        k, c = QuantumRegister(n), QuantumRegister(1)
+        qc = QuantumCircuit(k, c)
+        # Write your code here:
+
+        return qc

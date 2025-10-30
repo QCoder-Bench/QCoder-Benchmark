@@ -1,0 +1,27 @@
+## Problem Statement
+You are given integers $n$ and $m$, and two positive integers $a$ and $L$ that are coprime.
+
+Implement an operation that prepares a superposition state $\ket{A}$ from the zero state on a quantum circuit $\mathrm{qc}$ with $n + 2m + 1$ qubits.
+
+The superposition state $\ket{A}$ is defined by
+$$
+\ket{A}_{n+2m+1} = \frac{1}{\sqrt{2^n}} \sum_{k=0}^{2^n-1} \ket{k}_n \ket{a^k \ \text{mod} \ L}_{2m+1}.
+$$
+
+## Constraints
+- $1 \leq n \leq 5$
+- $1 \leq m \leq 5$
+- $1 \leq a < L \leq 2^m$
+- Global phase is ignored in judge.
+- Integers must be encoded by little-endian.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit, QuantumRegister
+
+
+    def solve(n: int, m: int, a: int, L: int) -> QuantumCircuit:
+        x, y = QuantumRegister(n), QuantumRegister(2 * m + 1)
+        qc = QuantumCircuit(x, y)
+        # Write your code here:
+
+        return qc

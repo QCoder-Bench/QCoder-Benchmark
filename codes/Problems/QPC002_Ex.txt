@@ -1,0 +1,32 @@
+## Problem Statement
+You are given an integer $n$, a real number $\theta$, an $n$-qubit quantum gate $U$ and an $n$-qubit parametric quantum gate $R(\cdot)$ of unknown structures.
+
+There exists a vector $\ket{\omega}$ satisfying the following two conditions:
+- $P \leq \left|\braket{\omega \mid U \mid 0}\right|^2 \leq 4P$
+- $R(\theta) = I - (1 - e^{i\theta})\ket{\omega}\bra{\omega}$
+
+Using the quantum gates $U$ and $R(\cdot)$, implement an operation $O$ that prepares the quantum state $\ket{\omega}$ on a quantum circuit $\mathrm{qc}$ with $n$ qubits.
+
+The operation $O$ must satisfy $\left|\braket{\omega \mid O \mid 0}\right|^2 \geq 0.99$ within an error of $0.01$.
+
+## Constraints
+- $1 \leq n \leq 5$
+- $0.02 \leq P \leq 1$
+- **The number of applied $R(\cdot)$ must not exceed $100$.** (If exceeded, a DLE (depth limit exceeded) error will be displayed)
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+    """
+    You can apply U and R as follows:
+    qc.compose(U(), inplace=True)
+    qc.compose(R(theta), inplace=True)
+    """
+
+
+    def solve(n: int, P: float, U, R) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc

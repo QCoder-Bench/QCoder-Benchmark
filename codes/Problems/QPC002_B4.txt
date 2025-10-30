@@ -1,0 +1,33 @@
+## Problem Statement
+You are given an integer $n$.
+Implement the quantum Fourier transform (QFT) for $n$ qubits.
+
+The quantum Fourier transform is defined as a $n$-qubit oracle $\mathrm{QFT}$ acting on computational basis states as
+$$
+\begin{equation}
+\ket{j}_n \xrightarrow{\mathrm{QFT}} \sqrt{\frac{1}{2^n}} \sum_{k=0}^{2^n-1} \exp{\left(\frac{2\pi i j k}{2^n}\right)} \ket{k}_n \nonumber
+\end{equation}
+$$
+for any integer $j$ such that $0 \leq j < 2^n$.
+
+## Constraints
+- $1 \leq n \leq 10$
+- **The circuit depth must not exceed $25$.**
+- **Integers are encoded by little-endian notation, meaning the least significant bit is on the left.**
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+    def solve(n: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc
+
+## Sample Input
+- $n = 2$:
+Implemented circuit $\mathrm{qc}$ should perform the following transformation.
+$$
+\ket{10} \xrightarrow{\mathrm{qc}} \frac{1}{\sqrt{4}} (\ket{00} + e^{\pi i / 2}\ket{10} + e^{\pi i}\ket{01} + e^{3 \pi i / 2}\ket{11})
+$$

@@ -1,0 +1,27 @@
+## Problem Statement
+You are given integers $n$, $a$ and $L$.
+
+Implement an oracle $O$ satisfying the following transition on a quantum circuit $\mathrm{qc}$ with $2n$ qubits.
+
+For any pair of integers $(x, y)$ satisfying $0 \leq x < L$ and $0 \leq y < L$, the oracle satisfies
+
+$$
+\ket{x}_{n} \ket{y}_{n} \xrightarrow{O} \ket{x}_n \ket{(y + ax)\ \text{mod} \ L}_n.
+$$
+
+## Constraints
+- $1 \leq n \leq 5$
+- $0 \leq a < L \leq 2^n$
+- Global phase is ignored in judge.
+- Integers must be encoded by little-endian.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit, QuantumRegister
+
+
+    def solve(n: int, a: int, L: int) -> QuantumCircuit:
+        x, y = QuantumRegister(n), QuantumRegister(n + 1)
+        qc = QuantumCircuit(x, y)
+        # Write your code here:
+
+        return qc

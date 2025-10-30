@@ -1,0 +1,28 @@
+## Problem Statement
+You are given an integer $n$ and real numbers $T_0,\ T_1,\ \ldots,\ T_{n-1}$.
+Implement the operation defined by the following matrix $A$ on a quantum circuit $\mathrm{qc}$ with $n$ qubits:
+
+$$
+A = 2 \ket{\psi}\bra{\psi} - I
+$$
+
+where $I$ denotes the $2^n \times 2^n$ identity matrix and $\ket{\psi}$ is defined by
+
+$$
+\ket{\psi} = (\cos T_0 \ket{0} + \sin T_0\ket{1}) (\cos T_1\ket{0} + \sin T_1\ket{1}) \ldots (\cos T_{n-1} \ket{0} + \sin T_{n-1} \ket{1}).
+$$
+
+## Constraints
+- $2 \leq n \leq 10$
+- $- \pi \lt T_i \leq \pi$
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int, T: list[float]) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc

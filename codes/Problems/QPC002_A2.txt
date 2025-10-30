@@ -1,0 +1,23 @@
+## Problem Statement
+Implement the operation of preparing the state $\ket{\psi}$ from the zero state on a quantum circuit $\mathrm{qc}$ with $2$ qubits.
+
+The quantum state $\ket{\psi}$ is defined as
+$$
+\begin{equation}
+\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{00} - \ket{11}) \nonumber
+\end{equation}.
+$$
+
+## Constraints
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+'''python
+    from qiskit import QuantumCircuit
+
+    def solve() -> QuantumCircuit:
+        qc = QuantumCircuit(2)
+        # Write your code here:
+
+        return qc
+'''

@@ -1,0 +1,26 @@
+## Problem Statement
+You are given integers $n$ and $L$.
+Implement the oracle $O$ on a quantum circuit $\mathrm{qc}$ with $n$ qubits, which multiplies all the probability amplitudes $a_i$ of $\ket{0},\ \ket{1},\ ...\ \ket{L-1}$ by $-1$.
+
+## Constraints
+- $1 \leq n \leq 5$
+- $1 \leq L \leq 2^n$
+- Global phase</Link is ignored in judge.
+- Integers must be encoded by little-endian.
+- The submitted code must follow the specified format:
+
+'''python
+    from qiskit import QuantumCircuit
+
+    def solve(n: int, L: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc
+'''
+
+## Sample Input
+- $n = 2,\ L=3$:
+The implemented oracle $O$ should perform the following transformation.
+
+\frac{1}{\sqrt{4}} (\ket{00} + \ket{10} + \ket{01} + \ket{11}) \xrightarrow{O} \frac{1}{\sqrt{4}} (-\ket{00} - \ket{10} - \ket{01} + \ket{11})

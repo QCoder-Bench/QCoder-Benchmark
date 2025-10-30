@@ -1,0 +1,89 @@
+## Problem Statement
+Let $n$ be a positive integer. For integers $m$, $k$ with $0 \leq m < 2$, $0 \leq k < 2^n$, define $E(m, k)$ as the following state:
+
+$$
+\begin{align}
+E(m, k) =
+& \frac{1}{\sqrt{2^{n+1}}}
+\sum_{0 \leq a < 2} \sum_{0 \leq b < 2}
+(-1)^{am + bk} \ket{a} \ket{b} \ket{0}_{n-1} \nonumber \\
+& + \frac{1}{\sqrt{2^n}} \sum_{1 \leq c < 2^{n-1}}
+\left( X^m R^{ck} \otimes I_1 \otimes I_{n-1} \right)
+\left( \ket{0}\ket{0} + \ket{1}\ket{1} \right)
+\ket{c}_{n-1}, \nonumber
+\end{align}
+$$
+
+where the matrices $X$ and $R$ are given by the $X$ gate and the rotation gate $Rz\left( 2 \pi / 2^{n - 1} \right)$, respectively:
+
+$$
+X = \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix},
+\quad
+R = Rz\left( \frac{2 \pi}{2^{n - 1}} \right) =  \begin{pmatrix}
+\exp \left( - \frac{2\pi i}{2^n} \right) & 0 \\
+0 & \exp \left( \frac{2\pi i}{2^n} \right)
+\end{pmatrix}.
+$$
+
+Given integers $n$, $m_{\text{right}}$ and $k_{\text{right}}$, implement an $(n + 1)$-qubit oracle $O$ on a quantum circuit $\mathrm{qc}$.
+
+The oracle $O$ must satisfy
+
+$$
+E(m, k) \xrightarrow{O} E(m', k'),
+$$
+
+where $m'$ and $k'$ are integers satisfying
+
+$$
+X^{m'} R^{k'} = X^{m} R^{k} X^{m_\text{right}} R^{k_\text{right}}.
+$$
+
+## Constraints
+- $2 \leq n \leq 10$
+- $0 \leq m_{\text{right}} < 2$
+- $0 \leq k_{\text{right}} < 2^n$
+- **The circuit depth must not exceed $30$.**
+- Integers must be encoded by little-endian.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    '''python
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int, m_right: int, k_right: int) -> QuantumCircuit:
+        qc = QuantumCircuit(n + 1)
+        # Write your code here:
+
+        return qc
+    '''
+
+
+## Hints
+
+- The existence of $m'$ and $k'$ is ensured by the following argument.<br/>
+  First, the matrices $X$ and $R$ satisfy
+  $$
+  X^2 = R^{2^n} = I, \quad RX = XR^{-1}.
+  $$
+  Using these relations, we compute:
+  $$
+  \begin{align}
+  X^{m'} R^{k'}
+  & = X^{m} R^{k} X^{m_\text{right}} R^{k_\text{right}} \nonumber \\
+  & = X^{m} \left( R^{k} X^{m_\text{right}} \right) R^{k_\text{right}} \nonumber \\
+  & = X^{m} \left( X^{m_{\text{right}}} R^{(-1)^{m_{\text{right}}} k} \right) R^{k_{\text{right}}} \nonumber \\
+  & = X^{m + m_\text{right}} R^{(-1)^{m_{\text{right}}} k + k_{\text{right}}} \nonumber
+  \end{align}
+  $$
+  from which we obtain
+  $$
+  \begin{gather}
+  m' = m + m_{\text{right}} \ \left(\text{mod} \ 2 \right) \nonumber \\
+  k' = (-1)^{m_{\text{right}}} k + k_{\text{right}} \ \left(\text{mod} \ 2^{n} \right). \nonumber
+  \end{gather}
+  $$

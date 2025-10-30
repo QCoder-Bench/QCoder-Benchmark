@@ -1,0 +1,21 @@
+## Problem Statement
+Implement the operation of preparing the state $\ket{1}$ from the zero state $\ket{0}$ on a quantum circuit $\mathrm{qc}$ with $1$ qubit.
+
+$$
+\begin{equation}
+\ket{0} \xrightarrow{\mathrm{qc}} \ket{1} \nonumber
+\end{equation}
+$$
+
+## Constraints
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve() -> QuantumCircuit:
+        qc = QuantumCircuit(1)
+        # Write your code here:
+
+        return qc

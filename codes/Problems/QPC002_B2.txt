@@ -1,0 +1,36 @@
+## Problem Statement
+You are given integers $n,\ L$, and a real number $\theta$.
+Implement the oracle $O$ on a quantum circuit $\mathrm{qc}$ with $n$ qubits acting on computational basis states as
+$$
+\begin{equation}
+\ket{y}_n \xrightarrow{O}
+\begin{cases}
+e^{i\theta} \ket{y}_n & y = L \\
+\phantom{e^{i\theta}} \ket{y}_n & y \neq L
+\end{cases} \nonumber
+\end{equation}
+$$
+for any integer $y$ such that $0 \leq y < 2^n$.
+
+## Constraints
+- $1 \leq n \leq 10$
+- $0 \leq L < 2^n$
+- $0 \leq \theta < 2\pi$
+- Integers must be encoded by little-endian.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+    def solve(n: int, L: int, theta: float) -> QuantumCircuit:
+        qc = QuantumCircuit(n)
+        # Write your code here:
+
+        return qc
+
+## Sample Input
+- $n = 2,\ L = 1,\ \theta = \pi/2$:
+Implemented circuit $\mathrm{qc}$ should perform the following transformation.
+$$
+\frac{1}{\sqrt{4}} (\ket{00} + \ket{10} + \ket{01} + \ket{11}) \xrightarrow{\mathrm{qc}} \frac{1}{\sqrt{4}} (\ket{00} + i\ket{10} + \ket{01} + \ket{11})
+$$

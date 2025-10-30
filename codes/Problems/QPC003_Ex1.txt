@@ -1,0 +1,52 @@
+## Problem Statement
+You are given an integer $n$ and an <Link href={pagePathEn.qa + "#oracle"}>oracle</Link> $O$.
+For any pair of integers $(x,y)$ satisfying $0\leq x\lt 2^n$ and $0\leq y\lt 2$, the oracle $O$ satisfies
+
+$$
+\ket{x}_n \ket{y}_1 \xrightarrow{O} \ket{x}_n \ket{y \oplus f(x)}_1,
+$$
+
+where $\oplus$ denotes the XOR operator, and $f(x)$ is a function that returns either $0$ or $1$ for any integer $x$ with $0\leq x\lt 2^n$.
+
+Implement an operation on a quantum circuit $\mathrm{qc}$ that satisfies
+
+$$
+\begin{equation}
+\ket{x}_n\ket{0}_1 \xrightarrow{\mathrm{qc}}
+\begin{cases}
+- \ket{x}_n\ket{0}_1 & (f(x) = 1) \\
+\ket{x}_n\ket{0}_1 & (f(x) = 0)
+\end{cases} \nonumber
+\end{equation},
+$$
+
+for any integer $x$ satisfying $0\leq x\lt 2^n$.
+
+## Constraints
+- $1\leq n\leq 10$
+- **The number of applied oracle must not exceed $1$.** (If exceeded, a DLE (depth limit exceeded) error will be displayed)
+- Integers must be encoded by little-endian.
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit, QuantumRegister
+
+    """
+    You can apply oracle as follows:
+    qc.compose(o, inplace=True)
+    """
+
+
+    def solve(n: int, o: QuantumCircuit) -> QuantumCircuit:
+        x, y = QuantumRegister(n), QuantumRegister(1)
+        qc = QuantumCircuit(x, y)
+        # Write your code here:
+
+        return qc
+
+## Sample Input
+- $n = 2,\ (f(00), f(10), f(01), f(11)) = (0, 1, 0, 1)$:
+Implemented circuit $\mathrm{qc}$ should perform the following transformation.
+  $$
+  \frac{1}{\sqrt{4}} ( \ket{00}+\ket{10}+\ket{01}+\ket{11} )\ket{0} \xrightarrow{\mathrm{qc}} \frac{1}{\sqrt{4}} (\ket{00} - \ket{10} + \ket{01} - \ket{11})\ket{0}
+  $$

@@ -1,0 +1,23 @@
+## Problem Statement
+Implement the operation of swapping two qubit states on a quantum circuit $\mathrm{qc}$ with $2$ qubits.
+
+More precisely, implement the operation defined as
+$$
+\begin{equation}
+a_0\ket{00} + \underline{a_1}\ket{10} + \underline{a_2}\ket{01} + a_3\ket{11} \xrightarrow{\mathrm{qc}} a_0\ket{00} + \underline{a_2}\ket{10} + \underline{a_1}\ket{01} + a_3\ket{11} \nonumber
+\end{equation},
+$$
+where $a_i$ represents arbitrary probability amplitudes.
+
+## Constraints
+- **You cannnot use Qiskit's SwapGate in this problem.**
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+    def solve() -> QuantumCircuit:
+        qc = QuantumCircuit(2)
+        # Write your code here:
+
+        return qc

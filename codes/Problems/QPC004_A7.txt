@@ -1,0 +1,48 @@
+## Problem Statement
+You are given an integer $n$.
+
+Let us define $[n] = \{1, 2, \cdots, n\}$, and for a subset $S$ of $[n]$, define a quantum state $\ket{S}$ by
+
+$$
+\begin{equation}
+\ket{S} = \ket{\textstyle \sum_{s \in S} 2^{s - 1}} \nonumber.
+\end{equation}
+$$
+
+Let $|S|$ denotes the number of elements in a set $S$. Implement the following operation on a quantum circuit $\mathrm{qc}$ with $2n$ qubits.
+
+$$
+\begin{align}
+\sum_{S \subseteq [n]} a_S \ket{S}_n \ket{0}_n
+\xrightarrow{\mathrm{qc}}
+&\sqrt{\frac{1}{3^n}} \sum_{S \subseteq T \subseteq [n]} a_T \ket{S}_n \ket{0}_n \nonumber\\
+&+ \sqrt{\frac{1}{3^n}} \sum_{T \subseteq S \subseteq [n]} (-1)^{(|S| - |T|)} a_T \ket{S}_n \ket{2^n - 1}_n\nonumber\\
+&+ \sum_{i = 1}^{2^n - 2} \sum_{S \subseteq [n]} b_{S, i} \ket{S}_n \ket{i}_n\nonumber\\
+\end{align}
+$$
+
+Here, $a_S$ represents the probability amplitude of a state $\ket{S}_n\ket{0}_n$, while $b_{S, i}$ represents an arbitrary probability amplitude of a state $\ket{S}_n \ket{i}_n$ (any values are permitted).
+
+## Constraints
+- $1 \leq n \leq 5$
+- **The circuit depth must not exceed $8$.**
+- Global phase is ignored in judge.
+- The submitted code must follow the specified format:
+
+    from qiskit import QuantumCircuit
+
+
+    def solve(n: int) -> QuantumCircuit:
+        qc = QuantumCircuit(2 * n)
+        # Write your code here:
+
+        return qc
+
+## Sample Input
+- $n = 1$:
+Implemented circuit $\mathrm{qc}$ should perform the following transformation.
+$$
+\begin{equation}
+a_0 \ket {00} + a_1 \ket {10} \xrightarrow{\mathrm{qc}} \frac{1}{\sqrt{3}} \lbrace (a_0 + a_1) \ket{00} + a_1 \ket{10} + a_0 \ket{01} - (a_0 -a_1) \ket{11} \rbrace \nonumber
+\end{equation}
+$$
