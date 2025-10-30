@@ -1,0 +1,26 @@
+Solve the following problem.
+Specify clearly, one by one, which gate operation leads to which state transition.
+    ex) $\ket{00} \xrightarrow{H(0)} \frac{1}{\sqrt{2}}(\ket{00} + \ket{10})$
+
+## Permitted Modules (you *must* use only these):
+    - Standard Library: `math` (→ `import math`)
+    - Qiskit:
+        - `QuantumCircuit` → `from qiskit import QuantumCircuit`
+        - `QuantumRegister` → `from qiskit import QuantumRegister`
+        - `qiskit.circuit.library.standard_gates`
+    - External Libraries:
+        - `numpy` → `import numpy`
+        - `scipy` → `import scipy`
+
+"## Rules:
+- ⚠️ Do NOT use any module other than those listed above.
+- ⚠️ Do NOT forget to import modules if you use
+
+## Output Format (strict):
+- Enclose your final code **exactly** between Markdown:
+    ```python
+    (your final code here)
+    ```
+
+-------------------------------------------------------------
+Now solve the following problem:
