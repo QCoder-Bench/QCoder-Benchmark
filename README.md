@@ -18,3 +18,5 @@
   
   <img width="1918" height="840" alt="session_cookie" src="https://github.com/user-attachments/assets/bf47e040-4941-426a-b674-1dd63d577d95" />
 
+### 4, Run 
+  Run 'code -> generate_and_judge.py'.
